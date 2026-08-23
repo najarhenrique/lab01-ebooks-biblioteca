@@ -1,0 +1,43 @@
+@startuml diagrama_de_classes_ebooks
+
+class Usuario {
+  - id: String
+  - nome: String
+  - senha: String
+  + autenticar(senhaDigitada: String): boolean
+}
+
+class Aluno {
+  - matricula: String
+  + adicionarEBook(ebook: EBook): void
+  + removerEBook(ebook: EBook): void
+  + consultarEstante(): void
+}
+
+class Bibliotecario {
+  - registroFuncional: String
+  + consultarAlunosComEBook(ebook: EBook): List
+  + cadastrarEBook(ebook: EBook): void
+}
+
+class EBook {
+  - titulo: String
+  - editora: String
+  - formato: String
+  - categoria: String
+}
+
+class Licenca {
+  - limiteAcessosSimultaneos: int
+  - acessosAtivos: int
+  + temVagaDisponivel(): boolean
+}
+
+class Estante {
+  + adicionar(ebook: EBook): void
+  + remover(ebook: EBook): void
+  + listar(): List
+  + contarEBooks(): int
+}
+
+@enduml
