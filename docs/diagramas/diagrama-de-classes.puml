@@ -1,6 +1,6 @@
 @startuml diagrama_de_classes_ebooks
 
-class Usuario {
+abstract class Usuario {
   - id: String
   - nome: String
   - senha: String
@@ -50,6 +50,10 @@ enum TipoLeitura {
   LIVRE
 }
 
+Usuario <|-- Aluno
+Usuario <|-- Bibliotecario
+
 Estante "1" o-- "0..6" EBook
+Aluno "1" *-- "1" Estante
 
 @enduml
