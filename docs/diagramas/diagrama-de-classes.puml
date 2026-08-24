@@ -40,4 +40,6 @@ class Estante {
   + contarEBooks(): int
 }
 
+Estante "1" o-- "0..6" EBook
+
 @enduml
