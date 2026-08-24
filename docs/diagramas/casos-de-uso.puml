@@ -6,24 +6,24 @@ actor Aluno
 actor Bibliotecario as "Bibliotecário"
 
 rectangle "Sistema de Gestão de eBooks" {
-  usecase "Realizar login" as UC01
-  usecase "Adicionar eBook à estante" as UC02
-  usecase "Remover eBook da estante" as UC03
-  usecase "Consultar estante pessoal" as UC04
-  usecase "Consultar alunos com um eBook" as UC05
-  usecase "Cadastrar eBook" as UC06
+  usecase "UC01 - Realizar login" as UC01
+  usecase "UC02 - Adicionar eBook à estante" as UC02
+  usecase "UC03 - Remover eBook da estante" as UC03
+  usecase "UC04 - Consultar estante pessoal" as UC04
+  usecase "UC05 - Consultar alunos com um eBook" as UC05
+  usecase "UC06 - Cadastrar eBook" as UC06
 }
 
-Aluno --> UC01
 Aluno --> UC02
 Aluno --> UC03
 Aluno --> UC04
 
-Bibliotecario --> UC01
 Bibliotecario --> UC05
 Bibliotecario --> UC06
 
 UC02 ..> UC01 : <<include>>
 UC03 ..> UC01 : <<include>>
 UC04 ..> UC01 : <<include>>
+UC05 ..> UC01 : <<include>>
+UC06 ..> UC01 : <<include>>
 @enduml
