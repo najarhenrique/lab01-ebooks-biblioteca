@@ -1,8 +1,9 @@
 ## Semana 1
 
 **Contribuição**
-* Modelei a herança entre a classe abstrata `Usuario` e suas implementações concretas (`Aluno` e `Bibliotecario`).
-* Modelei os relacionamentos de composição entre `Aluno` e `Estante`, e de agregação entre `Estante` e `EBook`.
+* Fiz as correções no diagrama de caso de uso e criei as classes do diagrama de classes.
+* Modelei e implementei no código a herança entre a classe abstrata `Usuario` e suas implementações concretas (`Aluno` e `Bibliotecario`).
+* Modelei e implementei os relacionamentos de composição entre `Aluno` e `Estante`, e de agregação entre `Estante` e `EBook`.
 
 **Decisões**
 * **Herança (`Usuario`):** Centraliza as credenciais de acesso para evitar código duplicado, garantindo que o sistema instancie apenas os perfis específicos de alunos e bibliotecários.
