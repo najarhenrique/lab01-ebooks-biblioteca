@@ -50,10 +50,17 @@ enum TipoLeitura {
   LIVRE
 }
 
+' Herança: Usuario é generalizado por Aluno e Bibliotecario
 Usuario <|-- Aluno
 Usuario <|-- Bibliotecario
 
-Estante "1" o-- "0..6" EBook
+' Composição: Aluno compõe uma Estante
 Aluno "1" *-- "1" Estante
+
+' Agregação: Estante agrega entre 0 e 6 EBooks
+Estante "1" o-- "0..6" EBook
+
+' Associação: EBook está associado a uma Licenca
+EBook "1" -- "1" Licenca
 
 @enduml
