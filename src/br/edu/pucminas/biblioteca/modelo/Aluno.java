@@ -35,8 +35,15 @@ public class Aluno extends Usuario {
         System.out.println("Total de eBooks: " + estante.contarEBooks());
 
         for (EBook ebook : estante.listar()) {
-            System.out.println("- " + ebook.getTitulo());
+            System.out.println("- " + ebook);
         }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\n" +
+            "  Matrícula: " + matricula + "\n" +
+            "  Estante: " + estante;
     }
 
     public String getMatricula() { return matricula; }

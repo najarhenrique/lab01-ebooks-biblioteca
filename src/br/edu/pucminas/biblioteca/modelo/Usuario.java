@@ -15,6 +15,13 @@ public abstract class Usuario {
         return senha != null && senha.equals(senhaDigitada);
     }
 
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "\n" +
+                "  ID: " + id + "\n" +
+                "  Nome: " + nome;
+    }
+
     public String getId() { return id; }
     public String getNome() { return nome; }
     public String getSenha() { return senha; }

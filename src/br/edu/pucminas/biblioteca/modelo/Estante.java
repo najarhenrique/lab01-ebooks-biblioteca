@@ -32,6 +32,26 @@ public class Estante {
         return this.ebooks.size();
     }
 
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Estante");
+        builder.append("\n  Obrigatórios: ").append(qtdObrigatorios);
+        builder.append("\n  Livres: ").append(qtdLivres);
+        builder.append("\n  EBooks:");
+
+        if (ebooks.isEmpty()) {
+            builder.append("\n    (vazia)");
+            return builder.toString();
+        }
+
+        for (EBook ebook : ebooks) {
+            builder.append("\n    - ").append(ebook.getTitulo());
+        }
+
+        return builder.toString();
+    }
+
     public int getQtdObrigatorios() { return qtdObrigatorios; }
     public int getQtdLivres() { return qtdLivres; }
 }
