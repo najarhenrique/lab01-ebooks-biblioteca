@@ -8,6 +8,10 @@ public class EBook {
     private int totalAdicoesNaEstante;
     private Licenca licenca;
 
+    public EBook(String titulo, String editora, String formato, String categoria) {
+        this(titulo, editora, formato, categoria, new Licenca());
+    }
+
     public EBook(String titulo, String editora, String formato, String categoria, Licenca licenca) {
         this.titulo = titulo;
         this.editora = editora;
@@ -18,8 +22,7 @@ public class EBook {
     }
 
     public boolean isElegivelParaRenovacao() {
-        // TODO: implementar na Sprint 3
-        return false;
+        return this.totalAdicoesNaEstante > 0;
     }
 
     public String getTitulo() { return titulo; }
