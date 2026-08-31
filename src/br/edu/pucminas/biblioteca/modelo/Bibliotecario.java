@@ -26,5 +26,11 @@ public class Bibliotecario extends Usuario {
         // TODO: integração com o catálogo persistido em arquivo será feita na próxima etapa.
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "\n" +
+            "  Registro funcional: " + registroFuncional;
+    }
+
     public String getRegistroFuncional() { return registroFuncional; }
 }
