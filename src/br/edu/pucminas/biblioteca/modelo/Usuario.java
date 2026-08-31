@@ -12,8 +12,7 @@ public abstract class Usuario {
     }
 
     public boolean autenticar(String senhaDigitada) {
-        // TODO: implementar na Sprint 3
-        return false;
+        return senha != null && senha.equals(senhaDigitada);
     }
 
     public String getId() { return id; }

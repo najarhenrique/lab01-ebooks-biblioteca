@@ -12,16 +12,18 @@ public class Bibliotecario extends Usuario {
     }
 
     public List<Aluno> consultarAlunosComEBook(EBook ebook) {
-        // TODO: implementar na Sprint 3
+        // A consulta depende de um repositório de alunos ainda não integrado neste protótipo.
         return new ArrayList<>();
     }
 
     public void cadastrarEBook(EBook ebook) {
-        // TODO: implementar na Sprint 3
+        if (ebook == null) {
+            throw new IllegalArgumentException("eBook nao pode ser nulo");
+        }
     }
 
     public void renovarCatalogo() {
-        // TODO: implementar na Sprint 3
+        // TODO: integração com o catálogo persistido em arquivo será feita na próxima etapa.
     }
 
     public String getRegistroFuncional() { return registroFuncional; }
