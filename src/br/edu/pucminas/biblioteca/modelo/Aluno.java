@@ -11,23 +11,11 @@ public class Aluno extends Usuario {
     }
 
     public void adicionarEBook(EBook ebook, TipoLeitura tipo) {
-        if (ebook == null) {
-            throw new IllegalArgumentException("eBook nao pode ser nulo");
-        }
-
-        if (estante.contarEBooks() >= 6) {
-            throw new IllegalStateException("Limite de eBooks na estante foi atingido");
-        }
-
-        if (!estante.listar().contains(ebook)) {
-            estante.listar().add(ebook);
-        }
+        estante.adicionar(ebook, tipo);
     }
 
     public void removerEBook(EBook ebook) {
-        if (ebook != null) {
-            estante.listar().remove(ebook);
-        }
+        estante.remover(ebook);
     }
 
     public void consultarEstante() {
@@ -35,7 +23,7 @@ public class Aluno extends Usuario {
         System.out.println("Total de eBooks: " + estante.contarEBooks());
 
         for (EBook ebook : estante.listar()) {
-            System.out.println("- " + ebook);
+            System.out.println("- " + ebook.getTitulo() + " [" + estante.getTipo(ebook) + "]");
         }
     }
 

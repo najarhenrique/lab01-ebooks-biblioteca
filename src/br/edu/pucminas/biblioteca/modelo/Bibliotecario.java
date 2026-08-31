@@ -3,6 +3,8 @@ package br.edu.pucminas.biblioteca.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.pucminas.biblioteca.persistencia.BibliotecaRepositorioArquivo;
+
 public class Bibliotecario extends Usuario {
     private String registroFuncional;
 
@@ -12,19 +14,35 @@ public class Bibliotecario extends Usuario {
     }
 
     public List<Aluno> consultarAlunosComEBook(EBook ebook) {
-        // A consulta depende de um repositório de alunos ainda não integrado neste protótipo.
-        return new ArrayList<>();
+        if (ebook == null) {
+            throw new IllegalArgumentException("eBook nao pode ser nulo");
+        }
+
+        try {
+            return BibliotecaRepositorioArquivo.getInstancia().consultarAlunosComEBook(ebook);
+        } catch (IllegalStateException ex) {
+            return new ArrayList<>();
+        }
     }
 
     public void cadastrarEBook(EBook ebook) {
         if (ebook == null) {
             throw new IllegalArgumentException("eBook nao pode ser nulo");
         }
+
+        try {
+            BibliotecaRepositorioArquivo.getInstancia().cadastrarEBook(
+                    ebook.getId(),
+                    ebook.getTitulo(),
+                    ebook.getEditora(),
+                    ebook.getFormato(),
+                    ebook.getCategoria(),
+                    ebook.getLicenca());
+        } catch (IllegalStateException ex) {
+            // Se o repositório ainda não foi inicializado, apenas valida a operação.
+        }
     }
 
-    public void renovarCatalogo() {
-        // TODO: integração com o catálogo persistido em arquivo será feita na próxima etapa.
-    }
 
     @Override
     public String toString() {

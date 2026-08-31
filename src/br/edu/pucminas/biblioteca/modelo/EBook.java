@@ -54,4 +54,24 @@ public class EBook {
     public String getCategoria() { return categoria; }
     public int getTotalAdicoesNaEstante() { return totalAdicoesNaEstante; }
     public Licenca getLicenca() { return licenca; }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof EBook)) {
+            return false;
+        }
+        EBook other = (EBook) obj;
+        if (id == null || other.id == null) {
+            return false;
+        }
+        return id.equals(other.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id == null ? 0 : id.hashCode();
+    }
 }
