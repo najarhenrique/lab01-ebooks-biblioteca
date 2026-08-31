@@ -12,20 +12,24 @@ public class Estante {
     }
 
     public void adicionar(EBook ebook, TipoLeitura tipo) {
-        // TODO: implementar na Sprint 3
+        this.ebooks.add(ebook);
+        if (tipo == TipoLeitura.OBRIGATORIA) {
+            this.qtdObrigatorios++;
+        } else {
+            this.qtdLivres++;
+        }
     }
 
     public void remover(EBook ebook) {
-        // TODO: implementar na Sprint 3
+        this.ebooks.remove(ebook);
     }
 
     public List<EBook> listar() {
-        // TODO: implementar na Sprint 3
-        return ebooks;
+        return this.ebooks;
     }
 
     public int contarEBooks() {
-        return ebooks.size();
+        return this.ebooks.size();
     }
 
     public int getQtdObrigatorios() { return qtdObrigatorios; }
